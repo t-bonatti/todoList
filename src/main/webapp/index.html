@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="todoApp">
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+<script src="todo.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="todo.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-4 todo-top-bar">
+				Lista de TODO
+			</div>
+			<div class="col-md-offset-3 col-md-4 todo-container">
+				<div ng-controller="TodoController">
+					<ul class="list-unstyled">
+						<li ng-repeat="todo in todos">
+							<input type="checkbox" ng-click="switchStatus(todo)" ng-model="todo.done">
+							<span class="done-{{todo.done}}">{{todo.description}}</span>
+							<span class="pull-right" ng-show="todo.done"><a href="javascript:void(0)" ng-click="removeTodo(todo)">Remover</a></span>
+						</li>
+					</ul>
+					<form ng-submit="addTodo()">
+						<div class="input-group">
+							<input type="text" ng-model="newTodo" size="30" placeholder="add new todo here" class="form-control">
+							<span class="input-group-btn">
+								<input class="btn btn-primary" ng-disabled="!newTodo" type="submit" value="Adicionar">
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
