@@ -11,14 +11,9 @@ Exemplo:
 <connection-url>jdbc:postgresql://localhost/todo</connection-url>
 <driver>postgresql</driver>
 <new-connection-sql>select 1</new-connection-sql>
-<pool>
-<min-pool-size>0</min-pool-size>
-<max-pool-size>20</max-pool-size>
-<flush-strategy>IdleConnections</flush-strategy>
-</pool>
 <security>
-<user-name>postgres</user-name>
-<password>postgres</password>
+<user-name>username</user-name>
+<password>password</password>
 </security>
 </datasource>
 ```
